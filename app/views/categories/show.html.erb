@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "categories" %>
+<% if @category.present? %>
+  <h2>Category is <%= @category.name %> </h2>
+
+<ul>
+  <li><%= @category.id %></li>
+  <li><%= @category.created_at %></li>
+  <li><%= @category.updated_at %></li>
+
+</ul>
+<% else %>
+  <p>You have not categories now. </p>
+<% end %>
+
+
