@@ -1,20 +1,10 @@
 <%= stylesheet_link_tag "categories" %>
-<% if @categories.present? %>
-  <h2> List of categories </h2>
 
-
-  <% @categories.each do |category| %>
-    <table style="main">
-      <tr>
-        <td width="auto"><%= category.id %></td>
-        <td width="200"><%= category.name %></td>
-        <td width="auto"><%= category.created_at %></td>
-        <td width="auto"><%= category.updated_at %></td>
-      </tr>
-    </table>
-  <% end %>
+<% if @category.present? %>
+  <h2> Edit category <%= @category.name %></h2>
+  <%= render 'form' %>
 <% else %>
-  <p>You have not categories now. </p>
+  <p>You have not categories that params. </p>
 <% end %>
 
 

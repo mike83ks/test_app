@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :find_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all
@@ -18,21 +19,33 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find_by(params[:id])
+    # callback in private - :find_category
+  end
 
+  def update
+    if @category.update(category_params)
+      redirect_to categories_path
+    else
+      render :edit
+    end
   end
 
   def show
-    @category = Category.find(params[:id])
+
   end
 
   def destroy
-
+    @category.destroy
+    redirect_to categories_path
   end
 
   private
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def find_category
+    @category = Category.find(params[:id])
   end
 end

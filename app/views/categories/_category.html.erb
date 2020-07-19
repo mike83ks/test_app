@@ -1,0 +1,8 @@
+<td class="align-middle">
+  <%= link_to "Edit", edit_category_path %></td>
+<td class="align-middle">
+  <%= link_to 'Delete',
+              category_path,
+              method: :delete,
+              data: { confirm: 'This category will be deleted! Are you sure?' } %>
+</td>
