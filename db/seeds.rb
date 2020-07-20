@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-act_new = ActionCategory.create(action_category_name: 'Buy');
-act_new = ActionCategory.create(action_category_name: 'Sell');
-act_new = ActionCategory.create(action_category_name: 'Change');
+act_new = ActionCategory.create(name: 'Buy');
+act_new = ActionCategory.create(name: 'Sell');
+act_new = ActionCategory.create(name: 'Change');
 
 product_new = Product.create(title: 'Стиральная машина', price: '5000');
 product_new = Product.create(title: 'Весы', price: '1000');

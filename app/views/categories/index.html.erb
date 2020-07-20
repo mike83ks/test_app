@@ -1,15 +1,14 @@
-<%= stylesheet_link_tag "categories" %>
+<% stylesheet_link_tag "categories" %>
 <% if @categories.present? %>
   <h2> List of categories </h2>
-
-
   <% @categories.each do |category| %>
-    <table style="main">
+    <table font-size="10px" class="table table-dark" border = "1">
       <tr>
         <td width="auto"><%= category.id %></td>
         <td width="200"><%= category.name %></td>
-        <td width="auto"><%= category.created_at %></td>
+        <td width="300"><%= category.created_at %></td>
         <td width="auto"><%= category.updated_at %></td>
+      </h5>
       </tr>
     </table>
   <% end %>
