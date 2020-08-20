@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :products, :categories, :action_categories, :users
+  resources :products, only: %i[index show]
+  resources :categories, only: %i[index show]
 
+  namespace :admin do
+    resources :categories, :action_categories, :users
+  end
 end
