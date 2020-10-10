@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show]
 
   namespace :admin do
-    resources :categories, :action_categories, :users
+    resources :categories, :action_categories, :users, :products
   end
 end

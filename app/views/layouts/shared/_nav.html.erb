@@ -8,18 +8,7 @@
 
   <span class="navbar-text">
     <% if user_signed_in? %>
-      Welcome, <b><%= current_user.email %></b> Guru |
-      <% if current_user.admin? %>
-        <button type="submit" class="btn"><%= link_to 'Admin panel', admin_tests_path %></button>
-      <% else %>
-        <button type="submit" class="btn"><%= link_to 'Send your feedback', new_feedback_url %></button>
-      <% end %>
-
-      <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
-
-    <% else %>
-      <%= link_to "Log in", new_session_path(resource_name) %>
-      <%= link_to "Sign Up", new_registration_path(resource_name) %>
+      Welcome, <b><%= current_user.email %></b>
     <% end %>
 
   </span>

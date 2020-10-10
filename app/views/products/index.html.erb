@@ -1,0 +1,33 @@
+<% if @products.present? %>
+  <h2> List of products </h2>
+  <% @products.each do |product| %>
+    <table font-size="10px" class="table table-dark" border = "1">
+      <tr>
+        <th> product.id</th>
+        <th> product.title </th>
+        <th> product.description </th>
+
+
+        <th> product.created_at </th>
+        <th> product.updated_at </th>
+        <th> product.user.name </th>
+      </tr>
+      <tr>
+        <td width="auto"><%= product.id %></td>
+        <td width="200"><%= product.title %></td>
+        <td width="auto"><%= product.description %></td>
+
+        <td width="300"><%= product.created_at %></td>
+        <td width="auto"><%= product.updated_at %></td>
+        <td width="auto"><%= product.user.name %></td>
+
+
+        </h5>
+      </tr>
+    </table>
+  <% end %>
+<% else %>
+  <p>You have not products now. </p>
+<% end %>
+
+
