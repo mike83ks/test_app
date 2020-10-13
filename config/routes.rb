@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'categories#index'
+  root 'products#index'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show]
 
   namespace :admin do
-    resources :categories, :action_categories, :users
+    resources :categories, :action_categories, :users, :products
   end
 end

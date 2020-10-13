@@ -1,4 +1,15 @@
-<p align="right">
-  <%= Time.now %>
-  <br/>Тест навигационной панели
-</p>
+<nav class="navbar navbar-light .bg-gradient-light" style="background-color: #999999;">
+
+  <%= link_to 'Advert Desk Zaigraevo district', root_path, class: 'navbar-brand' %>
+  <a class="navbar-brand" href="#">
+    <%# image_tag("console-one.png", {:style => "width:200px;", :class => "rounded"}) %>
+    <%# image_tag("github-one.png", {:style => "width:260px;", :class => "rounded"}) %>
+  </a>
+
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+      Welcome, <b><%= current_user.email %></b>
+    <% end %>
+
+  </span>
+</nav>
