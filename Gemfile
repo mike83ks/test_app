@@ -40,6 +40,8 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'simple_form'
 gem 'devise', '~> 4.0'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,7 +59,8 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma', require: false	
+  gem 'capistrano3-puma', require: false
+  gem 'letter_opener'
 end
 
 gem 'puma'

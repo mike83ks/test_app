@@ -1,0 +1,14 @@
+<!-- <#%= stylesheet_link_tag "categories" %> -->
+
+<% if @product.present? %>
+  <h2>Product is <%= @product.title %> </h2>
+
+<ul>
+  <li><%= @product.id %></li>
+
+</ul>
+<% else %>
+  <p>You have not products now. </p>
+<% end %>
+<%= render 'product' %>
+

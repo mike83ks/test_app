@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   #before_action :find_product, only: %i[show edit update destroy]
-
+  before_action :authenticate_user!
   def index
     @products = Product.all
   end

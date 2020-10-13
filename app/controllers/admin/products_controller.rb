@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to admin_products_path
+      redirect_to products_path
     else
       render :new
     end
@@ -41,11 +41,22 @@ class Admin::ProductsController < ApplicationController
 
   private
 
-  def category_params
-    params.require(:product).permit(:title)
+  def product_params
+    params.require(:product).permit(:title,
+                                    :description,
+                                    :price,
+                                    :category_id,
+                                    :action_category_id,
+                                    :user_id,
+                                    :remove_image)
   end
 
   def find_product
     @product = Product.find(params[:id])
   end
+
+  def user_id
+    @current_user.id
+  end
+
 end
