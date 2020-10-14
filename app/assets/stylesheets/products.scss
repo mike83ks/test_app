@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 p { color: red; }
+h2 { text-align: center; }
+//div { display: flex; }
+
+#box-container {
+  background: #cdb6b6;
+  display: flex;
+  align-content: center;
+  //width: auto;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  //flex-basis: 100px;
+  padding: 2px;
+  margin: 2px;
+}

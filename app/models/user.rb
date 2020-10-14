@@ -13,6 +13,6 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :products
-
-  validates :email, presence: true
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
 end

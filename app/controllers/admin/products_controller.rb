@@ -10,7 +10,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
     if @product.save
       redirect_to products_path
     else
@@ -31,7 +31,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
-
+    @product = Product.find(params[:id])
   end
 
   def destroy
@@ -47,16 +47,11 @@ class Admin::ProductsController < ApplicationController
                                     :price,
                                     :category_id,
                                     :action_category_id,
-                                    :user_id,
                                     :remove_image)
   end
 
   def find_product
     @product = Product.find(params[:id])
-  end
-
-  def user_id
-    @current_user.id
   end
 
 end
