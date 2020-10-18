@@ -1,9 +1,11 @@
 class Admin::ProductsController < ApplicationController
   #before_action :find_product, only: %i[show edit update destroy]
+  has_scope :category
 
   def index
-    @products = Product.all
-  end
+    @products = apply_scopes(Product.all.order(created_at: :desc))
+
+    end
 
   def new
     @product = Product.new
