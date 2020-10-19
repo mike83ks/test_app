@@ -3,9 +3,13 @@ class Admin::ProductsController < ApplicationController
   has_scope :category
 
   def index
-    @products = apply_scopes(Product.all.order(created_at: :desc))
-
+    if params['category'].present?
+      @products = Product.where(category: params['category'])
+      render partial: 'products_list', locals: { products: @products}, layout: false
+    else
+      @products = apply_scopes(Product.all.order(created_at: :desc))
     end
+  end
 
   def new
     @product = Product.new

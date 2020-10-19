@@ -1,0 +1,22 @@
+<!-- Located at: app/views/products/_products_list.html.erb -->
+
+<div id="box-container">
+  <% @products.each do |product| %>
+    <div id="box-container">
+      <div class="card" style="width: 18rem;">
+        <!--    <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title"><%= product.id %>:<%= product.title %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <h5>Price: <%= product.price %><br/></h5>
+          <%= product.created_at %><br/>
+          <%= product.updated_at %><br/>
+          Publisher is: <%= product.user.name %><br>
+          action: <%= product.action_category.name %> <br/>
+          <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

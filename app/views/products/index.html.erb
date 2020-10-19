@@ -1,24 +1,36 @@
 <% if @products.present? %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+
+  </nav>
   <h2> List of products </h2>
+
   <div id="box-container">
-  <% @products.each do |product| %>
+    <% @products.each do |product| %>
       <div id="box-container">
         <div class="card" style="width: 18rem;">
-  <!--    <img src="..." class="card-img-top" alt="..."> -->
+          <!--    <img src="..." class="card-img-top" alt="..."> -->
           <div class="card-body">
-          <h5 class="card-title"><%= product.id %>:<%= product.title %></h5>
-          <p class="card-text"><%= product.description %></p>
-          <h5>Price: <%= product.price %><br/></h5>
-          <%= product.created_at %><br/>
-          <%= product.updated_at %><br/>
-          Publisher is: <%= product.user.name %><br>
-          <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
+
+            <h5 class="card-title"><%= product.action_category.name %> <br/>
+             <%= product.title %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <h5>Price: <%= product.price %><br/></h5>
+            <%= product.created_at %><br/>
+            <%= product.updated_at %><br/>
+            Publisher is: <%= product.user.name %><br>
+
+            <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
           </div>
         </div>
       </div>
-  <% end %>
+    <% end %>
+  </div>>
 <% else %>
   <p>You have not products now. </p>
 <% end %>
 </div>
+
 

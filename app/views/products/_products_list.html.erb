@@ -1,0 +1,8 @@
+<!-- Located at: app/views/products/_products_list.html.erb -->
+
+<% products.each do |product| %>
+  <%= link_to product_path(product.url) %>
+  <h2><%= product.title %></h2>
+<% end %>
+<%= post.excerpt %>
+<% end %>

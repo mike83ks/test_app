@@ -6,28 +6,20 @@
  
   </nav>
   <h2> List of products </h2>
+  <!-- Filters -->
+  <section>
+    <p>Check posts by topic: </p>
+    <button class="btn btn-secondary" id="sell-filter" type="submit">Sell</button>
+    <button class="btn btn-warning" id="buy-filter">Buy</button>
+    <button class="btn btn-primary" id="change-filter">Change</button>
+  </section>
 
-  <div id="box-container">
-  <% @products.each do |product| %>
-    <div id="box-container">
-      <div class="card" style="width: 18rem;">
-          <!--    <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
-            <h5 class="card-title"><%= product.id %>:<%= product.title %></h5>
-            <p class="card-text"><%= product.description %></p>
-            <h5>Price: <%= product.price %><br/></h5>
-            <%= product.created_at %><br/>
-            <%= product.updated_at %><br/>
-            Publisher is: <%= product.user.name %><br>
-            action: <%= product.action_category.name %> <br/>
-            <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
-        </div>
-      </div>
-    </div>
-  <% end %>
-    </div>>
+  <!-- Posts' index -->
+  <section id="products-list">
+    <%= render 'products_list', products: @products %>
+  </section>
 <% else %>
   <p>You have not products now. </p>
 <% end %>
-</div>
+
 
