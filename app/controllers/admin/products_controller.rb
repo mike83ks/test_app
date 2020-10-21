@@ -1,13 +1,14 @@
 class Admin::ProductsController < ApplicationController
   #before_action :find_product, only: %i[show edit update destroy]
-  has_scope :category
+  include ProductsHelper
+
+  has_scope :sell, :buy, :change
 
   def index
-    if params['category'].present?
-      @products = Product.where(category: params['category'])
-      render partial: 'products_list', locals: { products: @products}, layout: false
-    else
-      @products = apply_scopes(Product.all.order(created_at: :desc))
+    @products = Product.all
+    # scopes
+    if params[:action_category_id].present?
+      @products = @products.by_action_category(params[:action_category_id])
     end
   end
 
