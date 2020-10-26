@@ -17,3 +17,25 @@ h2 { text-align: center; }
   padding: 2px;
   margin: 2px;
 }
+
+.top-menu-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+/*
+#products-list {
+  background: #86ce48;
+  display: flex;
+  align-content: center;
+  //width: auto;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  //flex-basis: 100px;
+  padding: 2px;
+  margin: 2px;
+}
+*/

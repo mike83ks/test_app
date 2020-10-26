@@ -6,19 +6,22 @@ class Admin::ActionCategoriesController < ApplicationController
   end
 
   def new
+
     @act_category = ActionCategory.new
   end
 
   def create
-    @act_category = Category.new(action_category_params)
-    if @act_category.save
-      redirect_to admin_categories_path
+    @action_category = ActionCategory.new(action_category_params)
+    if @action_category.save
+      redirect_to admin_action_categories_path
+
     else
       render :new
     end
   end
 
   def edit
+
     # callback in private - :find_category
   end
 
@@ -46,7 +49,9 @@ class Admin::ActionCategoriesController < ApplicationController
   end
 
   def find_action_category
+
     @act_category = ActionCategory.find(params[:id])
+
   end
 end
 

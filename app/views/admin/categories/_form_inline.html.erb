@@ -1,0 +1,10 @@
+<%= form_with model: [:admin, @category],
+              url: update_admin_category_path(@category),
+              local: true,
+              class: 'form-inline',
+              html: {style: 'display: none'},
+              data: { test_id: test.id } do |form| %>
+  <%= render 'shared/errors', resource: test %>
+  <%= form.text_field :title %>
+  <%= form.submit %>
+<% end %>
