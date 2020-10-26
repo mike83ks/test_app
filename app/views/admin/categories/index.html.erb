@@ -1,25 +1,22 @@
-<% stylesheet_link_tag "categories" %>
-<%= render 'form_inline', category: category == @category ? @category : category %>
+<%= stylesheet_link_tag "categories" %>
 <% if @categories.present? %>
-  <h2> Список категорий: </h2>
+  <h2> Список категорий </h2>
   <% @categories.each do |category| %>
-    <table border = "1">
-      <td width="50"><%= category.id %></td>
+    <table class="table table-bordered">
+      <tr>
+        <td width="40"><%= category.id %></td>
         <td width="400"><%= category.name %></td>
         <td width="200"><%= category.created_at %></td>
         <td width="200"><%= category.updated_at %></td>
-        <td class="align-middle">
-          <%= link_to "Edit",
-                    edit_admin_category_path(@category),
-                    data: { category_id: category.id } %></td>
-      <td class="align-middle">
-        <%= link_to 'Delete',
-                    admin_categories_path(@category),
-                    method: :delete,
-                    data: { confirm: 'This category will be deleted! Are you sure?' } %>
-      </td>
-      </table>
+        <td><%= link_to "Edit", edit_admin_category_path(category) %> </td>
+        <td><%= link_to "Delete",
+                        admin_category_path(category),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %> </td>
+      </tr>
+    </table>
   <% end %>
+  <button type="submit" class="btn"><%= link_to 'Новая категория', new_admin_category_path %></button>
 <% else %>
   <p>You have not categories now. </p>
 <% end %>

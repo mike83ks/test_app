@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "categories" %>
+<% if @action_categories.present? %>
+  <h2> Список действий </h2>
+  <% @action_categories.each do |act_category| %>
+    <table class="table table-bordered">
+      <tr>
+        <td width="40"><%= act_category.id %></td>
+        <td width="400"><%= act_category.name %></td>
+        <td width="200"><%= act_category.created_at %></td>
+        <td width="200"><%= act_category.updated_at %></td>
+        <td><%= link_to "Edit", edit_admin_action_category_path(act_category) %> </td>
+        <td><%= link_to "Delete",
+                        admin_action_category_path(act_category),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %> </td>
+      </tr>
+    </table>
+  <% end %>
+  <button type="submit" class="btn"><%= link_to 'Новое действие', new_admin_action_category_path %></button>
+<% else %>
+  <p>You have not categories now. </p>
+<% end %>
+
+

@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag "categories" %>
+
+<% if @action_category.present? %>
+  <h2> Edit category <%= @action_category.name %></h2>
+  <%= render 'form' %>
+<% else %>
+  <p>You have not categories that params. </p>
+<% end %>
+
+

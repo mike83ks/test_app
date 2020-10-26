@@ -1,0 +1,9 @@
+<div class="container mt-3">
+<%= simple_form_for [:admin, @act_category], local: true do |f| %>
+  <%= f.input :name %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+
+<% end %>
+  <button type="submit" class="btn btn-outline-primary"><%= link_to 'Назад к списку действий', admin_action_categories_path %></button>
+</div>

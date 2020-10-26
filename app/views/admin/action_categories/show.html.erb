@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "action_categories" %>
+
+<% if @action_category.present? %>
+  <h2>Действие: <%= @action_category.name %> </h2>
+
+<ul>
+  <li><%= @action_category.id %></li>
+  <li><%= @action_category.created_at %></li>
+  <li><%= @action_category.updated_at %></li>
+
+</ul>
+<% else %>
+  <p>You have not categories now. </p>
+<% end %>
+<%= render 'admin/action_categories/action_category' %>
+
