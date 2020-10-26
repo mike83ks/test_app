@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
-  #before_action :find_product, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  before_action :find_product, only: %i[show edit update destroy]
   include ProductsHelper
 
   has_scope :sell, :buy, :change
@@ -19,7 +20,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       render :new
     end
