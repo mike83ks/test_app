@@ -1,20 +1,22 @@
 <!-- <#%= stylesheet_link_tag "categories" %> -->
 
 <% if @product.present? %>
-  <h2>Product is <%= @product.title %> </h2>
+  <h2><%= @product.title %> </h2>
 
 <ul>
   <div id="box-container">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 100%;">
       <!--    <img src="..." class="card-img-top" alt="..."> -->
       <div class="card-body">
-        <h5 class="card-title"><%= @product.id %>:<%= @product.title %></h5>
+        <h5 class="card-title"><%= @product.id %> : <%= @product.title %></h5>
         <p class="card-text"><%= @product.description %></p>
         <h5>Price: <%= @product.price %><br/></h5>
         <%= @product.created_at %><br/>
         <%= @product.updated_at %><br/>
         Publisher is: <%= @product.user.name %><br>
-        <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+        <a href="/admin/products/" class="btn btn-primary">Назад к списку обьявлений</a>
+
+        </a>
       </div>
     </div>
   </div>
@@ -23,5 +25,5 @@
 <% else %>
   <p>You have not products now. </p>
 <% end %>
-<#%= render "@product" %>
+
 
