@@ -1,12 +1,18 @@
-<nav class="navbar navbar-light .bg-gradient-light" style="background-color: #cdb460;">
+<nav class="navbar navbar-light .bg-gradient-light form-inline" style="background-color: #cae39b;">
 
-  <%= link_to 'Доска обьявлений Заиграевский район', admin_products_path, class: 'navbar-brand' %>
+  <%= link_to 'Доска объявлений Заиграевский район', admin_products_path, class: 'navbar-brand' %>
   <a class="navbar-brand" href="#">
     <%# image_tag("console-one.png", {:style => "width:200px;", :class => "rounded"}) %>
     <%# image_tag("github-one.png", {:style => "width:260px;", :class => "rounded"}) %>
   </a>
-  <button type="submit" class="btn btn-outline-primary"><%= link_to 'Категории', admin_categories_path %></button>
-  <button type="submit" class="btn btn-outline-primary"><%= link_to 'Действия', admin_action_categories_path %></button>
+  <nav class="navbar form-inline" >
+    <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Категории', admin_categories_path %></button>
+    <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Действия', admin_action_categories_path %></button>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
