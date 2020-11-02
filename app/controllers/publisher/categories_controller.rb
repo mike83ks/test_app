@@ -1,5 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :admin_required!
+class Publisher::CategoriesController < ApplicationController
   before_action :find_category, only: %i[show edit update destroy]
 
   def index

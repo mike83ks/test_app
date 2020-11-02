@@ -1,4 +1,6 @@
 class Admin::ActionCategoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :admin_required!
   before_action :find_action_category, only: %i[show edit update destroy]
 
   def index
@@ -49,4 +51,3 @@ class Admin::ActionCategoriesController < ApplicationController
     @action_category = ActionCategory.find(params[:id])
   end
 end
-

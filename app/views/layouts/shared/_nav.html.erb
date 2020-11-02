@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-light .bg-gradient-light form-inline" style="background-color: #cae39b;">
 
   <%= link_to 'Доска объявлений Заиграевский район', admin_products_path, class: 'navbar-brand' %>
@@ -6,8 +7,10 @@
     <%# image_tag("github-one.png", {:style => "width:260px;", :class => "rounded"}) %>
   </a>
   <nav class="navbar form-inline" >
-    <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Категории', admin_categories_path %></button>
-    <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Действия', admin_action_categories_path %></button>
+    <% if user_signed_in? && current_user.is_a?(Admin) %>
+      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Категории', admin_categories_path %></button>
+      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Действия', admin_action_categories_path %></button>
+    <% end %>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -17,6 +20,10 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       Welcome, <b><%= current_user.email %></b>
+      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to "Выйти",  destroy_user_session_path, method: :delete %></button>
+    <% else %>
+      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to "Войти", new_user_session_path  %></button>
+      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to "Регистрация", new_user_registration_path  %></button>
     <% end %>
 
   </span>
