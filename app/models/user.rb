@@ -13,6 +13,16 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :products
+  
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  def is_admin?
+    self.is_a?(Admin)
+  end
+
+  def is_publisher?
+    self.is_a?(Publisher)
+  end
+
 end

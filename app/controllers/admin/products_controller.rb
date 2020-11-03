@@ -1,6 +1,8 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_product, only: %i[show edit update destroy]
+  before_action :admin_required!, only: %i[show edit update destroy]
+
   include ProductsHelper
 
   has_scope :sell, :buy, :change

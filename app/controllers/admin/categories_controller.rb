@@ -1,6 +1,7 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :admin_required!
+class Admin::CategoriesController < Admin::BaseController
+  before_action :authenticate_user!
   before_action :find_category, only: %i[show edit update destroy]
+  before_action :admin_required!, only: %i[index show edit update destroy]
 
   def index
     @categories = Category.all
