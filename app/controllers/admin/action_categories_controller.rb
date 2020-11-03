@@ -1,4 +1,6 @@
-class Admin::ActionCategoriesController < ApplicationController
+class Admin::ActionCategoriesController < Admin::BaseController
+  before_action :authenticate_user!
+  before_action :admin_required!, only: %i[index show edit update destroy]
   before_action :find_action_category, only: %i[show edit update destroy]
 
   def index
@@ -6,27 +8,24 @@ class Admin::ActionCategoriesController < ApplicationController
   end
 
   def new
-
-    @act_category = ActionCategory.new
+    @action_category = ActionCategory.new
   end
 
   def create
     @action_category = ActionCategory.new(action_category_params)
     if @action_category.save
       redirect_to admin_action_categories_path
-
     else
       render :new
     end
   end
 
   def edit
-
     # callback in private - :find_category
   end
 
   def update
-    if @act_category.update(action_category_params)
+    if @action_category.update(action_category_params)
       redirect_to admin_action_categories_path
     else
       render :edit
@@ -38,7 +37,7 @@ class Admin::ActionCategoriesController < ApplicationController
   end
 
   def destroy
-    @act_category.destroy
+    @action_category.destroy
     redirect_to admin_action_categories_path
   end
 
@@ -49,9 +48,6 @@ class Admin::ActionCategoriesController < ApplicationController
   end
 
   def find_action_category
-
-    @act_category = ActionCategory.find(params[:id])
-
+    @action_category = ActionCategory.find(params[:id])
   end
 end
-

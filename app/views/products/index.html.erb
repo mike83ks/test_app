@@ -5,7 +5,7 @@
     </button>
 
   </nav>
-  <h2><%= @products.controller.name %></h2>
+
 
   <div id="box-container">
     <% @products.each do |product| %>
@@ -22,7 +22,7 @@
             <%= product.updated_at %><br/>
             Publisher is: <%= product.user.name %><br>
 
-            <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
+            <a href="/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
           </div>
         </div>
       </div>
@@ -32,5 +32,3 @@
   <p>You have not products now. </p>
 <% end %>
 </div>
-
-
