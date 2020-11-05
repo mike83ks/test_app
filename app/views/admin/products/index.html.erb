@@ -10,7 +10,7 @@
       <button type="button" class="btn btn-outline-warning"> <%= link_to "Ищу", admin_products_path(action_category_id: '4') %></button>
     </div>
   <br />
-  <h5 align="center"> Найдено обьявлений: <%= @products.count %></h5>
+  <h5 align="center"> Найдено обьявлений по запросу: <%= @products.count %></h5>
   <!-- Products' index -->
     <%= render 'products_list', products: @products %>
   </section>
@@ -18,5 +18,3 @@
 <% else %>
   <p>You have not products now. </p>
 <% end %>
-
-
