@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Admin::ProductsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_product, only: %i[show edit update destroy]
@@ -7,11 +6,6 @@ class Admin::ProductsController < Admin::BaseController
   include ProductsHelper
 
   has_scope :sell, :buy, :change
-=======
-class Admin::ProductsController < ApplicationController
-  #before_action :find_product, only: %i[show edit update destroy]
-  has_scope :category
->>>>>>> parent of 0d2c514... Merge branch 'master' into task_seven
 
   def index
     if params['category'].present?
