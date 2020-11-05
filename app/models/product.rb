@@ -5,8 +5,10 @@ class Product < ApplicationRecord
 
 
   #mount_uploader :image, ImageUploader
-  scope :by_action_category, -> (action_category_id) { where(action_category_id: action_category_id) if action_category_id.present? }
-  scope :sell, -> (action_category_id) { where("action_category_id = 2") }
-  scope :buy, -> (action_category_id) { where("action_category_id = 1") }
-  scope :change, -> (action_category_id) { where("action_category_id = 3") }
+  scope :sell, -> { where("action_category_id = 2") }
+  scope :buy, -> { where("action_category_id = 1") }
+  scope :change, -> { where("action_category_id = 3") }
+
+
+
 end

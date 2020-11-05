@@ -5,7 +5,7 @@ const productsList = document.getElementById('products-list');
 
 // Wrap our fetch() method in a function we can call whenever we want
 const filterProducts = (category) => {
-    // Store our controller endpoint for clarity
+    // Store our controller enpoint for clarity
     let categoryParams = `?category=${category}`;
     let actionUrl = 'admin_products' + categoryParams;
 
@@ -33,6 +33,6 @@ const buyFilter = document.getElementById('sell-filter');
 const changeFilter = document.getElementById('change-filter');
 
 // Trigger filterProducts when users click on a filter button
-sellFilter.onclick = () => { filterProducts(':sell'); }
-buyFilter.onclick = () => { filterProducts(':buy'); }
-changeFilter.onclick = () => { filterProducts(':11change'); }
+sellFilter.onclick = () => { filterPosts('sell'); }
+buyFilter.onclick = () => { filterPosts('buy'); }
+changeFilter.onclick = () => { filterPosts('change'); }

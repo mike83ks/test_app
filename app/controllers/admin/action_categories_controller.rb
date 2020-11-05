@@ -8,6 +8,7 @@ class Admin::ActionCategoriesController < Admin::BaseController
   end
 
   def new
+<<<<<<< HEAD
     @action_category = ActionCategory.new
   end
 
@@ -15,6 +16,15 @@ class Admin::ActionCategoriesController < Admin::BaseController
     @action_category = ActionCategory.new(action_category_params)
     if @action_category.save
       redirect_to admin_action_categories_path
+=======
+    @act_category = ActionCategory.new
+  end
+
+  def create
+    @act_category = Category.new(action_category_params)
+    if @act_category.save
+      redirect_to admin_categories_path
+>>>>>>> parent of 0d2c514... Merge branch 'master' into task_seven
     else
       render :new
     end
@@ -48,6 +58,10 @@ class Admin::ActionCategoriesController < Admin::BaseController
   end
 
   def find_action_category
+<<<<<<< HEAD
     @action_category = ActionCategory.find(params[:id])
+=======
+    @act_category = ActionCategory.find(params[:id])
+>>>>>>> parent of 0d2c514... Merge branch 'master' into task_seven
   end
 end

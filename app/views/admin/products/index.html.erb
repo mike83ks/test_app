@@ -1,4 +1,5 @@
 <% if @products.present? %>
+<<<<<<< HEAD
   <nav class="navbar navbar-expand-lg navbar-light bg-outline">
     <!-- a class="navbar-brand" href="#">Navbar</a -->
   <section id="products-list" style="align-items: center">
@@ -12,9 +13,27 @@
   <br />
   <h5 align="center"> Найдено обьявлений: <%= @products.count %></h5>
   <!-- Products' index -->
+=======
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+ 
+  </nav>
+  <h2> List of products </h2>
+  <!-- Filters -->
+  <section>
+    <p>Check posts by topic: </p>
+    <button class="btn btn-secondary" id="sell-filter" type="submit">Sell</button>
+    <button class="btn btn-warning" id="buy-filter">Buy</button>
+    <button class="btn btn-primary" id="change-filter">Change</button>
+  </section>
+
+  <!-- Posts' index -->
+  <section id="products-list">
+>>>>>>> parent of 0d2c514... Merge branch 'master' into task_seven
     <%= render 'products_list', products: @products %>
   </section>
-  </nav>
 <% else %>
   <p>You have not products now. </p>
 <% end %>

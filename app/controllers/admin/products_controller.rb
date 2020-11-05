@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Admin::ProductsController < Admin::BaseController
   before_action :authenticate_user!
   before_action :find_product, only: %i[show edit update destroy]
@@ -6,12 +7,18 @@ class Admin::ProductsController < Admin::BaseController
   include ProductsHelper
 
   has_scope :sell, :buy, :change
+=======
+class Admin::ProductsController < ApplicationController
+  #before_action :find_product, only: %i[show edit update destroy]
+  has_scope :category
+>>>>>>> parent of 0d2c514... Merge branch 'master' into task_seven
 
   def index
-    @products = Product.all
-    # scopes
-    if params[:action_category_id].present?
-      @products = @products.by_action_category(params[:action_category_id])
+    if params['category'].present?
+      @products = Product.where(category: params['category'])
+      render partial: 'products_list', locals: { products: @products}, layout: false
+    else
+      @products = apply_scopes(Product.all.order(created_at: :desc))
     end
   end
 
@@ -22,7 +29,7 @@ class Admin::ProductsController < Admin::BaseController
   def create
     @product = current_user.products.new(product_params)
     if @product.save
-      redirect_to admin_products_path
+      redirect_to products_path
     else
       render :new
     end
