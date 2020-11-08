@@ -9,16 +9,6 @@
     <%# image_tag("console-one.png", {:style => "width:200px;", :class => "rounded"}) %>
     <%# image_tag("github-one.png", {:style => "width:260px;", :class => "rounded"}) %>
   </a>
-  <nav class="navbar form-inline" >
-    <% if user_signed_in? # && current_user.is_admin? %>
-      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Категории', admin_categories_path %></button>
-      <button type="submit" class="btn btn-warning my-2 my-sm-1 mr-sm-2"><%= link_to 'Действия', admin_action_categories_path %></button>
-    <% end %>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
