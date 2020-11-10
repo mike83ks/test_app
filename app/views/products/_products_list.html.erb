@@ -1,8 +1,23 @@
-<!-- Located at: app/views/products/_products_list.html.erb -->
+<!-- Located at: app/views/admin/products/_products_list.html.erb -->
+<!-- TODO: change card content for users app/views/products/_products_list.html.erb -->
+<div id="box-container">
+  <% @products.each do |product| %>
+    <div id="box-container">
+      <div class="card" style="width: 18rem;">
+        <img src="/download.jpeg" class="card-img-top" alt="<%= product.description %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= product.action_category.name.capitalize %></h5>
+            <%= product.title %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <h5>Цена: <%= product.price %><br/></h5>
+          Размещено: <%= product.created_at.gmtime %><br/>
+          <%# product.updated_at.gmtime %>
+          Publisher is: <%= product.user.name %><br>
 
-<% products.each do |product| %>
-  <%= link_to product_path(product.url) %>
-  <h2><%= product.title %></h2>
-<% end %>
-<%= post.excerpt %>
-<% end %>
+          <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

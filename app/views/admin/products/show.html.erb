@@ -14,6 +14,10 @@
         <%= @product.created_at %><br/>
         <%= @product.updated_at %><br/>
         Publisher is: <%= @product.user.name %><br>
+        <p>
+          <strong>Image:</strong>
+          <%= image_tag(@product.image.url, alt: 'Image') if @product.image? %>
+        </p>
         <a href="/admin/products/" class="btn btn-primary">Назад к списку обьявлений</a>
 
         </a>

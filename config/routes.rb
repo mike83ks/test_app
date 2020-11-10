@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     resources :categories, :action_categories, :users, :products
   end
 
+  namespace :publisher do
+    resources :products
+  end
 end

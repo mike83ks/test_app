@@ -10,8 +10,8 @@ class Publisher::ProductsController < Publisher::BaseController
   def index
     @products = Product.all
     # scopes
-    if params[:action_category_id].present?
-      @products = @products.by_action_category(params[:action_category_id])
+    if params[:publisher_id].present?
+      @products = @products.by_publisher(params[:publisher_id])
     end
   end
 
@@ -21,6 +21,7 @@ class Publisher::ProductsController < Publisher::BaseController
 
   def create
     @product = current_user.products.new(product_params)
+    @product.publisher_id = current_user.id
     if @product.save
       redirect_to products_path
     else

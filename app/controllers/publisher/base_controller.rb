@@ -10,4 +10,5 @@ class Publisher::BaseController < ApplicationController
   def publisher_required
     redirect_to root_path, alert: 'Вы не можете создавать, редактировать, удалять объявления, до тех пор пока не зарегистрируетесь.' unless current_user.is_a?(Publisher)
   end
+
 end

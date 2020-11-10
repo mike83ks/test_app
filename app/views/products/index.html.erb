@@ -1,34 +1,20 @@
 <% if @products.present? %>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    </button>
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-outline">
+    <!-- a class="navbar-brand" href="#">Navbar</a -->
+  <section id="products-list" style="align-items: center">
+    <div class="filter-buttons" align="center">
+      <button type="button" class="btn btn-outline-primary"><%= link_to "Все категории", admin_products_path() %></button>
+      <button type="button" class="btn btn-outline-primary"><%= link_to "Продажа", admin_products_path(action_category_id: '2') %></button>
+      <button type="button" class="btn btn-outline-secondary"><%= link_to "Покупка", admin_products_path(action_category_id: '1') %></button>
+      <button type="button" class="btn btn-outline-warning"> <%= link_to "Обмен", admin_products_path(action_category_id: '3') %></button>
+      <button type="button" class="btn btn-outline-warning"> <%= link_to "Ищу", admin_products_path(action_category_id: '4') %></button>
+    </div>
+  <br />
+  <h5 align="center"> Найдено обьявлений по запросу: <%= @products.count %></h5>
+  <!-- Products' index -->
+    <%= render 'products_list', products: @products %>
+  </section>
   </nav>
-
-
-  <div id="box-container">
-    <% @products.each do |product| %>
-      <div id="box-container">
-        <div class="card" style="width: 18rem;">
-          <!--    <img src="..." class="card-img-top" alt="..."> -->
-          <div class="card-body">
-
-            <h5 class="card-title"><%= product.action_category.name %> <br/>
-             <%= product.title %></h5>
-            <p class="card-text"><%= product.description %></p>
-            <h5>Price: <%= product.price %><br/></h5>
-            <%= product.created_at %><br/>
-            <%= product.updated_at %><br/>
-            Publisher is: <%= product.user.name %><br>
-
-            <a href="/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>>
 <% else %>
   <p>You have not products now. </p>
 <% end %>
-</div>

@@ -1,0 +1,21 @@
+<% if @products.present? %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-outline">
+    <!-- a class="navbar-brand" href="#">Navbar</a -->
+  <section id="products-list" style="align-items: center">
+    <div class="filter-buttons" align="center">
+      <button type="button" class="btn btn-outline-primary"><%= link_to "Все категории", publisher_products_path() %></button>
+      <button type="button" class="btn btn-outline-primary"><%= link_to "Продажа", publisher_products_path(action_category_id: '2') %></button>
+      <button type="button" class="btn btn-outline-secondary"><%= link_to "Покупка", publisher_products_path(action_category_id: '1') %></button>
+      <button type="button" class="btn btn-outline-warning"> <%= link_to "Обмен", publisher_products_path(action_category_id: '3') %></button>
+
+      <button type="button" class="btn btn-outline-warning"> <%= link_to "Мои объявления", publisher_products_path(publisher_id: current_user.id) %></button>
+    </div>
+  <br />
+  <h5 align="center"> Найдено обьявлений по запросу: <%= @products.count %></h5>
+  <!-- Products' index -->
+    <%= render 'products_list', products: @products %>
+  </section>
+  </nav>
+<% else %>
+  <p>You have not products now. </p>
+<% end %>

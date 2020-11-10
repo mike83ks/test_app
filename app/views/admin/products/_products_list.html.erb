@@ -4,7 +4,8 @@
   <% @products.each do |product| %>
     <div id="box-container">
       <div class="card" style="width: 18rem;">
-        <img src="/download.jpeg" class="card-img-top" alt="<%= product.description %>">
+        <!img src="/download.jpeg" class="card-img-top" alt="<%= product.description %>">
+        <%= image_tag(product.image.url, alt: 'Image') if product.image? %>
         <div class="card-body">
           <h5 class="card-title"><%= product.action_category.name.capitalize %></h5>
             <%= product.title %></h5>

@@ -21,9 +21,13 @@ class Admin::ProductsController < Admin::BaseController
 
   def create
     @product = current_user.products.new(product_params)
+    @product.publisher_id = current_user.id
+
     if @product.save
+      flash[:success] = "Отлично! Вы создали пост!"
       redirect_to admin_products_path
     else
+      flash.now[:error] = "Исправьте ваши ошибки, пожалуйста."
       render :new
     end
   end
@@ -57,7 +61,7 @@ class Admin::ProductsController < Admin::BaseController
                                     :price,
                                     :category_id,
                                     :action_category_id,
-                                    :remove_image)
+                                    :image)
   end
 
   def find_product
