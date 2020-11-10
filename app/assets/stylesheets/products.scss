@@ -1,8 +1,14 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-p { color: red; }
-h2 { text-align: center; }
+p {
+  color: red;
+  font-family: "Times New Roman", Arial, Sans-Serif;
+}
+h2 {
+  text-align: center;
+  font-family: "Times New Roman", Arial, Sans-Serif;
+}
 //div { display: flex; }
 
 #box-container {
@@ -16,6 +22,15 @@ h2 { text-align: center; }
   //flex-basis: 100px;
   padding: 2px;
   margin: 2px;
+  font-family: "Times New Roman", Arial, Sans-Serif;
+}
+.header-txt-admin {
+  font-family: "Times New Roman", Arial, Sans-Serif;
+  color: #009999;
+}
+
+.navbar-brand {
+  font-family: "Times New Roman", Arial, Sans-Serif;
 }
 
 img {
@@ -32,7 +47,7 @@ img {
 .card-img-top {
   
   width: 60px;
-
+  font-family: "Times New Roman", Arial, Sans-Serif;
 }
 /*
 #products-list {
