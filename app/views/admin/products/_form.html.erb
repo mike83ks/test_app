@@ -1,11 +1,11 @@
 <div class="container mt-3">
   <%= render '/layouts/shared/errors', object: @product %>
-<%= simple_form_for [:admin, @product], html: {multipart: true}, local: true do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-    <%= f.input :price %>
-      Выберите категорию обьявления: <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
-      Выберите действие: <%= f.collection_select :action_category_id, ActionCategory.all, :id, :name, prompt: true %>
+    <%= simple_form_for [:admin, @product], html: {multipart: true}, local: true do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+        Выберите категорию обьявления: <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+        Выберите действие: <%= f.collection_select :action_category_id, ActionCategory.all, :id, :name, prompt: true %>
     <div class="field">
       <%= f.label :image %><br>
       <%= f.file_field :image, :value => @product.image %>
@@ -13,6 +13,8 @@
     <%= f.button :submit, class: "btn-primary" %>
 
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-<% end %>
-  is <%= current_user.id %>
+  <% end %>
+
+  <!-- TODO: DESTROY THIS INCLUDES -->
+    айди пользователя: <%= current_user.id %>
 </div>

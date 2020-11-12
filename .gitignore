@@ -22,6 +22,9 @@
 /storage/*
 !/storage/.keep
 
+# Ignore public directory
+/public/*
+
 /node_modules
 /yarn-error.log
 

@@ -5,4 +5,13 @@
   <%= f.button :submit, class: "btn-primary" %>
   <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 <% end %>
+  <td class="align-middle">
+    <%= link_to "New", new_admin_category_path %> | </td>
+    <%= link_to "Edit", edit_admin_category_path %> | </td>
+  <td class="align-middle">
+    <%= link_to 'Delete',
+                admin_category_path,
+                method: :delete,
+                data: { confirm: 'This category will be deleted! Are you sure?' } %>
+  </td>
 </div>

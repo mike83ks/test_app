@@ -5,20 +5,21 @@
     <div id="box-container">
       <div class="card" style="width: 18rem;">
         <!img src="/download.jpeg" class="card-img-top" alt="<%= product.description %>">
-        <%= image_tag(product.image.url, alt: 'Image') if product.image? %>
+        <%= image_tag(product.image.url, alt: "Image") if product.image? %>
         <div class="card-body">
           <h5 class="card-title"><%= product.action_category.name.capitalize %></h5>
             <%= product.title %></h5>
             <p class="card-text"><%= product.description %></p>
             <h5>Цена: <%= product.price %><br/></h5>
-          Размещено: <%= product.created_at.gmtime %><br/>
+          Размещено: <%= product.created_at.strftime("%d/%m/%Y %I:%M %p") %><br/>
           <%# product.updated_at.gmtime %>
           Publisher is: <%= product.user.name %><br>
 
-          <a href="/admin/products/<%= product.id %>" class="btn btn-primary">See more details...</a>
+          <%= link_to "Пыдробнее...", admin_product_path(product), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
   <% end %>
+
 </div>
 

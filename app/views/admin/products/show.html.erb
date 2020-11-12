@@ -18,12 +18,22 @@
           <strong>Image:</strong>
           <%= image_tag(@product.image.url, alt: 'Image') if @product.image? %>
         </p>
-        <a href="/admin/products/" class="btn btn-primary">Назад к списку обьявлений</a>
+
 
         </a>
       </div>
     </div>
   </div>
+  <td class="align-middle">
+    <%= link_to "Назад к списку объявлений", admin_products_path %> | </td>
+    <%= link_to "Новое объявление", new_admin_product_path %> | </td>
+    <%= link_to "Редактировать", edit_admin_product_path %> | </td>
+  <td class="align-middle">
+    <%= link_to 'Удалить объявление',
+                admin_product_path,
+                method: :delete,
+                data: { confirm: 'This category will be deleted! Are you sure?' } %>
+  </td>
 
 </ul>
 <% else %>

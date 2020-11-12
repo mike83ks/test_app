@@ -8,7 +8,7 @@ class Admin::ProductsController < Admin::BaseController
   has_scope :sell, :buy, :change
 
   def index
-    @products = Product.all
+    @products = Product.all.order(updated_at: :desc)
     # scopes
     if params[:action_category_id].present?
       @products = @products.by_action_category(params[:action_category_id])
