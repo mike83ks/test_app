@@ -16,7 +16,7 @@
         Publisher is: <%= @product.user.name %><br>
         <p>
           <strong>Image:</strong>
-          <%= image_tag(@product.image.url, alt: 'Image') if @product.image? %>
+          <%= image_tag(@product.image.url(:thumb), alt: 'Image') if @product.image? %>
         </p>
 
 
@@ -24,16 +24,16 @@
       </div>
     </div>
   </div>
-  <td class="align-middle">
-    <%= link_to "Назад к списку объявлений", admin_products_path %> | </td>
-    <%= link_to "Новое объявление", new_admin_product_path %> | </td>
-    <%= link_to "Редактировать", edit_admin_product_path %> | </td>
-  <td class="align-middle">
+
+    <%= link_to "Назад к списку объявлений", admin_products_path, class: "btn btn-warning" %> |
+    <%= link_to "Новое объявление", new_admin_product_path, class: "btn btn-warning" %> |
+    <%= link_to "Редактировать", edit_admin_product_path, class: "btn btn-warning" %> |
+
     <%= link_to 'Удалить объявление',
                 admin_product_path,
                 method: :delete,
-                data: { confirm: 'This category will be deleted! Are you sure?' } %>
-  </td>
+                data: { confirm: 'This category will be deleted! Are you sure?' },
+                class: "btn btn-danger" %>
 
 </ul>
 <% else %>

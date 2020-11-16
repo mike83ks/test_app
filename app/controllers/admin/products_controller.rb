@@ -1,6 +1,6 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :authenticate_user!
-  before_action :find_product, only: %i[show edit update destroy]
+  before_action :find_product, only: %i[edit update destroy]
   before_action :admin_required!, only: %i[show edit update destroy]
 
   include ProductsHelper
@@ -45,7 +45,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]) or not_found
   end
 
   def destroy
@@ -65,7 +65,7 @@ class Admin::ProductsController < Admin::BaseController
   end
 
   def find_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]) or raise('not_found')
   end
 
 end

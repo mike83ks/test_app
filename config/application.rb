@@ -15,5 +15,8 @@ module TestApp
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.after_initialize do |app|
+      app.routes.append{ match '*a', :to => 'application#not_found' } unless config.consider_all_requests_local
+    end
   end
 end

@@ -11,4 +11,9 @@ module ProductsHelper
       @products = @products.all
     end
   end
+
+  def user_products
+    user = current_user
+    @products = user.products
+  end
 end

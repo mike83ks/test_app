@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-light .bg-gradient-light form-inline" style="background-color: #e8dc96;">
-  <% if user_signed_in? && current_user.is_admin? %>
+  <% if user_signed_in? && current_user.is_publisher? %>
     <%= link_to 'Доска объявлений Заиграевский район', publisher_products_path, class: 'navbar-brand' %>
   <% else %>
     <%= link_to 'Доска объявлений Заиграевский район', products_path, class: 'navbar-brand' %>

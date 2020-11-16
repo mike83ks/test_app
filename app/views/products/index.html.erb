@@ -8,6 +8,7 @@
       <button type="button" class="btn btn-outline-secondary"><%= link_to "Покупка", admin_products_path(action_category_id: '1') %></button>
       <button type="button" class="btn btn-outline-warning"> <%= link_to "Обмен", admin_products_path(action_category_id: '3') %></button>
       <button type="button" class="btn btn-outline-warning"> <%= link_to "Ищу", admin_products_path(action_category_id: '4') %></button>
+
     </div>
   <br />
   <h5 align="center"> Найдено обьявлений по запросу: <%= @products.count %></h5>
